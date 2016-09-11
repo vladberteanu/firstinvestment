@@ -1,7 +1,7 @@
 const user = (state = {}, action) => {
   switch (action.type) {
-    case 'SIGNUP':
-      return { isAuthenticated: 'pending' }
+    case 'SET_USER':
+      return action.user
     default:
       return state
   }
