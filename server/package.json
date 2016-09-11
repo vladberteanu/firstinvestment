@@ -1,0 +1,23 @@
+{
+  "name": "firstinvestment",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "dependencies": {
+    "body-parser": "^1.4.3",
+    "express": "^4.4.5"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vladberteanu/firstinvestment.git"
+  },
+  "author": "Vlad Berteanu",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vladberteanu/firstinvestment/issues"
+  },
+  "homepage": "https://github.com/vladberteanu/firstinvestment#readme"
+}
