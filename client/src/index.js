@@ -5,6 +5,7 @@ import { Provider } from 'react-redux'
 import { createStore } from 'redux'
 
 import auth from './auth';
+import onboarding from './onboarding'
 import rootReducer from './rootReducer'
 
 import './css/index.css';
@@ -16,6 +17,9 @@ render(
   <Provider store={store}>
     <Router history={browserHistory}>
       <Route path="/signup" component={auth.components.Signup} />
+      <Route path="app" component={auth.components.Authorizer}>
+        <Route path="/onboarding/dob" component={onboarding.components.DateOfBirth} />
+      </Route>
     </Router>
   </Provider>,
   document.getElementById('root')
