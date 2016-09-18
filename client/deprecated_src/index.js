@@ -4,17 +4,17 @@ import { render } from 'react-dom'
 import { Provider } from 'react-redux'
 import { createStore } from 'redux'
 
-import auth from './auth';
-import rootReducer from './rootReducer'
+import SignupPage from './components/SignupPage';
+import AppReducers from './reducers'
 
 import './css/index.css';
 
-let store = createStore(rootReducer)
+let store = createStore(AppReducers)
 
 render(
   <Provider store={store}>
     <Router history={browserHistory}>
-      <Route path="/signup" component={auth.components.Signup} />
+      <Route path="/signup" component={SignupPage} />
     </Router>
   </Provider>,
   document.getElementById('root')
