@@ -8,7 +8,7 @@ const Authorizer = withRouter(
   React.createClass({
 
     componentDidMount() {
-      if (!this.props.user) {
+      if (!this.props.user.name) {
         this.props.router.replace('/signup')
       }
     },
@@ -19,14 +19,14 @@ const Authorizer = withRouter(
                 <Header/>
                 {this.props.children}
             </div>
-        );
+        )
     }
   })
 )
 
 const mapStateToProps = (state) => {
   return {
-    user: state.auth.user
+    user: state.user
   }
 }
 

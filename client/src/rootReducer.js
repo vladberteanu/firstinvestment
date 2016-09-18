@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
-import auth from './auth';
+import onboarding from './onboarding';
 
 export default combineReducers({
-  [auth.constants.NAME]: auth.reducer
+  [onboarding.constants.NAME]: onboarding.reducer
 });

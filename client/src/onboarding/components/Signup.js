@@ -4,6 +4,7 @@ import ProgressButton from 'react-progress-button'
 import { connect } from 'react-redux'
 import auth from '../';
 import { Header } from '../../header/components'
+import { nextOnboardingStep } from '../../onboarding/utils'
 
 const Signup = withRouter(
   React.createClass({
@@ -30,11 +31,12 @@ const Signup = withRouter(
         let user = {
           username: this.state.username,
           name: this.state.name,
-          password: this.state.password
+          password: this.state.password,
+          onboardingSteps: ['dob', 'capital']
         }
         this.setState({submitButtonState: 'success'})
         this.props.onUserCreated(user)
-        this.props.router.replace('onboarding/dob')
+        this.props.router.replace(nextOnboardingStep(user))
       }, 1000);
     },
 

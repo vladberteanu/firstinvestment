@@ -17,7 +17,7 @@ const Header = React.createClass({
 
 const mapStateToProps = (state) => {
   return {
-    name: state.auth.user ? state.auth.user.name : null,
+    name: state.user ? state.user.name : null,
   }
 }
 

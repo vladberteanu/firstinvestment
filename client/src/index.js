@@ -4,8 +4,7 @@ import { render } from 'react-dom'
 import { Provider } from 'react-redux'
 import { createStore } from 'redux'
 
-import auth from './auth';
-import onboarding from './onboarding'
+import onboarding from './onboarding';
 import rootReducer from './rootReducer'
 
 import './css/index.css';
@@ -16,9 +15,10 @@ let store = createStore(rootReducer)
 render(
   <Provider store={store}>
     <Router history={browserHistory}>
-      <Route path="/signup" component={auth.components.Signup} />
-      <Route path="app" component={auth.components.Authorizer}>
+      <Route path="/signup" component={onboarding.components.Signup} />
+      <Route path="app" component={onboarding.components.Authorizer}>
         <Route path="/onboarding/dob" component={onboarding.components.DateOfBirth} />
+        <Route path="/onboarding/capital" component={onboarding.components.Capital} />
       </Route>
     </Router>
   </Provider>,
