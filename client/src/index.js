@@ -8,6 +8,7 @@ import auth from './auth';
 import rootReducer from './rootReducer'
 
 import './css/index.css';
+import './css/progressive-button.css';
 
 let store = createStore(rootReducer)
 

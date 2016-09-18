@@ -1,4 +1,5 @@
 import React from 'react';
+import ProgressButton from 'react-progress-button'
 import { connect } from 'react-redux'
 import auth from '../';
 
@@ -9,6 +10,7 @@ const Signup = React.createClass({
       name: '',
       username: '',
       password: '',
+      submitButtonState: '',
     }
   },
 
@@ -19,6 +21,7 @@ const Signup = React.createClass({
   handleSubmit(event) {
     event.preventDefault()
 
+    this.setState({submitButtonState: 'loading'})
     // TODO: REST API
     setTimeout( () => {
       let user = {
@@ -26,6 +29,7 @@ const Signup = React.createClass({
         name: this.state.name,
         password: this.state.password
       }
+      this.setState({submitButtonState: 'success'})
       this.props.onUserCreated(user)
     }, 1000);
   },
@@ -65,17 +69,14 @@ const Signup = React.createClass({
                   className="form-control"/>
               </div>
               <div className="form-group">
-                <button className="btn btn-primary btn-lg">
-                  Sign Up
-                </button>
+              <ProgressButton state={this.state.submitButtonState}>
+                Sign Up
+              </ProgressButton>
               </div>
             </form>
           </div>
         </div>
       </div>
-
-
-
     );
   }
 })
