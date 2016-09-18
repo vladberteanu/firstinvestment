@@ -6,21 +6,22 @@ import auth from '../';
 import { Header } from '../../header/components'
 import { nextOnboardingStep } from '../../onboarding/utils'
 
-const Signup = withRouter(
-  React.createClass({
-
-    getInitialState() {
-      return {
+class Signup extends React.Component {
+    constructor(props) {
+      super(props)
+      this.state = {
         name: '',
         username: '',
         password: '',
         submitButtonState: '',
       }
-    },
+      this.handleChange = this.handleChange.bind(this);
+      this.handleSubmit = this.handleSubmit.bind(this);
+    }
 
     handleChange(event) {
       this.setState({ [event.target.name]: event.target.value });
-    },
+    }
 
     handleSubmit(event) {
       event.preventDefault()
@@ -38,7 +39,7 @@ const Signup = withRouter(
         this.props.onUserCreated(user)
         this.props.router.replace(nextOnboardingStep(user))
       }, 1000);
-    },
+    }
 
     render() {
       return (
@@ -86,8 +87,7 @@ const Signup = withRouter(
         </div>
       );
     }
-  })
-)
+  }
 
 const mapStateToProps = (state) => { return {} }
 
@@ -102,4 +102,4 @@ const mapDispatchToProps = (dispatch) => {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(Signup)
+)(withRouter(Signup))
