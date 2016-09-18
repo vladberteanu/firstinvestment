@@ -2,6 +2,7 @@ import React from 'react';
 import ProgressButton from 'react-progress-button'
 import { connect } from 'react-redux'
 import auth from '../';
+import { Header } from '../../header/components'
 
 const Signup = React.createClass({
 
@@ -37,6 +38,7 @@ const Signup = React.createClass({
   render() {
     return (
       <div>
+        <Header/>
         <div className="row">
           <div className="col-md-4 col-md-offset-4">
             <form onSubmit={this.handleSubmit}>
