@@ -1,27 +1,21 @@
 import React from 'react';
+import { connect } from 'react-redux'
+import { withRouter } from 'react-router'
 import ProgressButton from 'react-progress-button'
+import { OnboardingMixin, mapStateToProps, mapDispatchToProps } from './OnboardingMixin'
+
 
 const Capital = React.createClass({
 
+   mixins: [OnboardingMixin],
+
   getInitialState() {
     return {
-      capital: '',
+      submitData: {
+        capital: '',
+      },
       submitButtonState: '',
     }
-  },
-
-  handleChange(event) {
-    this.setState({ [event.target.name]: event.target.value });
-  },
-
-  handleSubmit(event) {
-    event.preventDefault()
-
-    this.setState({submitButtonState: 'loading'})
-    // TODO: REST API
-    setTimeout( () => {
-      this.setState({submitButtonState: 'success'})
-    }, 1000);
   },
 
   render() {
@@ -53,4 +47,7 @@ const Capital = React.createClass({
   }
 })
 
-export default Capital
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(withRouter(Capital))

@@ -1,30 +1,22 @@
 import React from 'react';
+import { connect } from 'react-redux'
+import { withRouter } from 'react-router'
 import ProgressButton from 'react-progress-button'
-import { Header } from '../../header/components'
+import { OnboardingMixin, mapStateToProps, mapDispatchToProps } from './OnboardingMixin'
 
 const DateOfBirth = React.createClass({
 
+  mixins: [OnboardingMixin],
+
   getInitialState() {
     return {
-      day: '',
-      month: '',
-      year: '',
+      submitData: {
+        day: '',
+        month: '',
+        year: '',
+      },
       submitButtonState: '',
     }
-  },
-
-  handleChange(event) {
-    this.setState({ [event.target.name]: event.target.value });
-  },
-
-  handleSubmit(event) {
-    event.preventDefault()
-
-    this.setState({submitButtonState: 'loading'})
-    // TODO: REST API
-    setTimeout( () => {
-      this.setState({submitButtonState: 'success'})
-    }, 1000);
   },
 
   render() {
@@ -71,4 +63,7 @@ const DateOfBirth = React.createClass({
   }
 })
 
-export default DateOfBirth
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(withRouter(DateOfBirth))
