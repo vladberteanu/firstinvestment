@@ -23,10 +23,14 @@ var OnboardingMixin = {
         username: 'vladcyb1',
         name: 'Vlad Berteanu',
         password: 'test',
-        onboardingSteps: ['capital']
+        onboardingSteps: []
+      }
+      if (!this.state.submitData.capital) {
+        user.onboardingSteps = ['capital']
       }
       this.setState({submitButtonState: 'success'})
       this.props.onboardingUpdated(user)
+      console.log('next:',nextOnboardingStep(user))
       this.props.router.replace(nextOnboardingStep(user))
     }, 1000);
   },

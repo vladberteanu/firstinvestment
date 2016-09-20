@@ -19,6 +19,7 @@ render(
       <Route path="app" component={onboarding.components.Authorizer}>
         <Route path="/onboarding/dob" component={onboarding.components.DateOfBirth} />
         <Route path="/onboarding/capital" component={onboarding.components.Capital} />
+        <Route path="/portfolio"/>
       </Route>
     </Router>
   </Provider>,
