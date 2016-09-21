@@ -16,7 +16,7 @@ render(
   <Provider store={store}>
     <Router history={browserHistory}>
       <Route path="/signup" component={onboarding.components.Signup} />
-      <Route path="app" component={onboarding.components.Authorizer}>
+      <Route component={onboarding.components.Authorizer}>
         <Route path="/onboarding/dob" component={onboarding.components.DateOfBirth} />
         <Route path="/onboarding/capital" component={onboarding.components.Capital} />
         <Route path="/portfolio"/>
