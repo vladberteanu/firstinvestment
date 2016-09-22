@@ -1,10 +1,13 @@
+import Input from 'react-toolbox/lib/input';
+import {Button} from 'react-toolbox/lib/button';
 import React from 'react';
 import { withRouter } from 'react-router'
-import ProgressButton from 'react-progress-button'
 import { connect } from 'react-redux'
 import auth from '../';
 import { Header } from '../../header/components'
 import { nextOnboardingStep } from '../../onboarding/utils'
+const {Grid, Row, Col} = require('react-flexbox-grid');
+
 
 var _ = require('underscore')
 
@@ -21,9 +24,9 @@ const Signup = React.createClass({
     }
   },
 
-  handleChange(event) {
+  handleChange(name, value) {
     var submitData = _.extend({}, this.state.submitData)
-    submitData[event.target.name] = event.target.value
+    submitData[name] = value
     this.setState({ submitData: submitData });
   },
 
@@ -48,48 +51,28 @@ const Signup = React.createClass({
 
   render() {
     return (
-      <div>
+      <Grid>
         <Header/>
-        <div className="row">
-          <div className="col-md-4 col-md-offset-4">
+        <Row center="xs">
+          <Col md={5}>
             <form onSubmit={this.handleSubmit}>
-              <h1>Join our community!</h1>
-              <div className="form-group">
-              <input
-                  value={this.state.name}
-                  name="name"
-                  className="form-control"
-                  placeholder="Your name..."
-                  onChange={this.handleChange}
-                />
-              </div>
-              <div className="form-group">
-                <input
-                  value={this.state.username}
-                  name="username"
-                  className="form-control"
-                  placeholder="Your email..."
-                  onChange={this.handleChange}
-                />
-              </div>
-              <div className="form-group">
-                <input
-                  value={this.state.password}
-                  name="password"
-                  type="password"
-                  placeholder="Your password..."
-                  onChange={this.handleChange}
-                  className="form-control"/>
-              </div>
-              <div className="form-group">
-              <ProgressButton state={this.state.submitButtonState}>
-                Sign Up
-              </ProgressButton>
-              </div>
+              <Input type='text' label='Name' name='name'
+                value={this.state.submitData.name}
+                onChange={this.handleChange.bind(this, 'name')}/>
+
+              <Input type='email' label='Email address'
+                value={this.state.submitData.email}
+                onChange={this.handleChange.bind(this, 'email')} />
+
+              <Input type='email' label='Password'
+                value={this.state.submitData.password}
+                onChange={this.handleChange.bind(this, 'password')} />
+
+                <Button type="submit" icon='bookmark' label='Sign Up' raised primary />
             </form>
-          </div>
-        </div>
-      </div>
+          </Col>
+        </Row>
+      </Grid>
     );
   }
 })
