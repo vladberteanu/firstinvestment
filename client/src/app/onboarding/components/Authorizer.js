@@ -8,15 +8,14 @@ const Authorizer = withRouter(
   React.createClass({
 
     componentDidMount() {
-      if (!this.props.user.name) {
-        this.props.router.replace('/signup')
-      }
+      // if (!this.props.user.name) {
+      //   this.props.router.replace('/signup')
+      // }
     },
 
     render() {
         return (
             <div>
-                <Header/>
                 {this.props.children}
             </div>
         )
