@@ -1,5 +1,75 @@
+$font-stack: "Proxima Nova";
 
-    .form-group input {
-        color: blue;
-    }
+$grey-1: #ccc;
+$white: white;
+$green: #57B257;
+
+// Overwrite Bootstrap
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: $font-stack;
+}
+
+p, div {
+    font-family: $font-stack;
+}
+
+p {
+    margin: 0;
+    padding: 0;
+}
+
+.form-group input {
+    border-radius: 0;
+}
+
+.form-group input:focus {
+    border-color: $grey-1;
+    box-shadow: none;
+}
+
+.form-horizontal {
+    border: 1px solid #ddd;
+    padding: 40px;
+    background-color: $white;
+}
+
+.btn {
+    border-radius: 0;
+}
+
+a, a:hover {
+    text-decoration: none;
+    color: $green;
+}
+
+// Spacing classes
+
+$xs-space: 8px;
+$md-space: 16px;
+$lg-space: 32px;
+
+.bumperTop-md {
+    margin-top: $md-space;
+}
+
+.bumperTop-lg {
+    margin-top: $lg-space;
+}
+
+
+// APP
+
+.logo {
+    height: 70px;
+    margin: 30px 0 30px 0px;
+}
+
+.auth .swap {
+    margin-top: $xs-space;
+}
+
+body {
+    background-color: #eee;
+}
 

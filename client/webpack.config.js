@@ -1,3 +1,5 @@
+const path = require('path');
+
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 function getDevTool() {
@@ -47,11 +49,22 @@ module.exports = {
                     "style",
                     "css!sass"
                 )
+            },
+
+            { test: /\.jpe?g$|\.gif$|\.png$|\.svg$/,
+              loader: "file"
             }
         ]
     },
 
     plugins: [
         new ExtractTextPlugin("./dist/styles/main.css")
-    ]
+    ],
+
+    resolve: {
+        extensions: ['', '.js', '.jsx'],
+        root: [
+          path.resolve('./src')
+        ]
+  }
 };
