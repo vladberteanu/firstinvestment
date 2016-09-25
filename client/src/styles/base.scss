@@ -1,6 +1,8 @@
 $font-stack: "Proxima Nova";
 
 $grey-1: #ccc;
+$grey-2: #eee;
+
 $white: white;
 $green: #57B257;
 
@@ -69,7 +71,46 @@ $lg-space: 32px;
     margin-top: $xs-space;
 }
 
+.onboarding {
+
+    .form-group input {
+        background-color: $grey-2;
+        border-top: none;
+        border-left: none;
+        border-right: none;
+        box-shadow: none;
+        margin-left: $md-space;
+    }
+
+    .twoDigit {
+        width: 50px;
+    }
+    .fourDigit {
+        width: 62px;
+    }
+    .sevenDigit {
+        width: 80px;
+    }
+
+    .dollar {
+        padding: 0;
+        border: none;
+    }
+
+    .form-group input.capital {
+        margin-left: 0px;
+    }
+
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    /* display: none; <- Crashes Chrome on hover */
+    -webkit-appearance: none;
+    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+}
+
 body {
-    background-color: #eee;
+    background-color: $grey-2;
 }
 

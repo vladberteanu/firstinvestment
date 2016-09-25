@@ -17,6 +17,7 @@ module.exports = {
 
     output: {
         filename: './dist/scripts/[name].js',
+        publicPath: '/',
     },
 
     devtool: getDevTool(),
