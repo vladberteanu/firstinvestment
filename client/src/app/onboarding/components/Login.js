@@ -33,7 +33,7 @@ const Signup = React.createClass({
         setTimeout( () => {
             let user = {
                 username: this.state.submitData.username,
-                name: this.state.submitData.name,
+                name: this.state.submitData.username,
                 password: this.state.submitData.password,
                 onboardingSteps: ['dob', 'capital']
             }
