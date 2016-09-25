@@ -1,7 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router'
-import ProgressButton from 'react-progress-button'
 import { OnboardingMixin, mapStateToProps, mapDispatchToProps } from './OnboardingMixin'
 
 
@@ -36,9 +35,6 @@ const Capital = React.createClass({
                 />
               </div>
               <br/>
-              <ProgressButton state={this.state.submitButtonState}>
-                Start portfolio
-              </ProgressButton>
             </form>
           </div>
         </div>

@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router'
-import ProgressButton from 'react-progress-button'
+
 import { OnboardingMixin, mapStateToProps, mapDispatchToProps } from './OnboardingMixin'
 
 const DateOfBirth = React.createClass({
@@ -52,9 +52,6 @@ const DateOfBirth = React.createClass({
                   className="form-control"/>
               </div>
               <br/>
-              <ProgressButton state={this.state.submitButtonState}>
-                Next
-              </ProgressButton>
             </form>
           </div>
         </div>

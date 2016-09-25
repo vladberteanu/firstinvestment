@@ -1,12 +1,10 @@
-import Input from 'react-toolbox/lib/input';
-import {Button} from 'react-toolbox/lib/button';
 import React from 'react';
+import { Form, FormControl, FormGroup, Row, Col, ControlLabel, Checkbox, Button} from 'react-bootstrap';
 import { withRouter } from 'react-router'
 import { connect } from 'react-redux'
 import auth from '../';
 import { Header } from '../../header/components'
 import { nextOnboardingStep } from '../../onboarding/utils'
-const {Grid, Row, Col} = require('react-flexbox-grid');
 
 
 var _ = require('underscore')
@@ -24,15 +22,15 @@ const Signup = React.createClass({
     }
   },
 
-  handleChange(name, value) {
+  handleChange(e) {
     var submitData = _.extend({}, this.state.submitData)
-    submitData[name] = value
+    submitData[e.target.name] = e.target.value
     this.setState({ submitData: submitData });
   },
 
+
   handleSubmit(event) {
     event.preventDefault()
-
     this.setState({submitButtonState: 'loading'})
     // TODO: REST API
     setTimeout( () => {
@@ -51,28 +49,41 @@ const Signup = React.createClass({
 
   render() {
     return (
-      <Grid>
-        <Header/>
-        <Row center="xs">
-          <Col md={5}>
-            <form onSubmit={this.handleSubmit}>
-              <Input type='text' label='Name' name='name'
-                value={this.state.submitData.name}
-                onChange={this.handleChange.bind(this, 'name')}/>
+      <div>
+        <Row>
+            <Col className="text-center vlad">
+                <h3>Build A Risk Free Investment Portfolio</h3>
+            </Col>
+        </Row>
+        <Row>
+          <Col sm={4} smOffset={4}>
+            <Form horizontal onSubmit={this.handleSubmit}>
+              <FormGroup>
+                <FormControl type="text" placeholder="Full Name" name="name"
+                  value={this.state.submitData.name}
+                  onChange={this.handleChange}/>
+              </FormGroup>
 
-              <Input type='email' label='Email address'
-                value={this.state.submitData.email}
-                onChange={this.handleChange.bind(this, 'email')} />
+              <FormGroup>
+                <FormControl type="email" placeholder="Email" name="email"
+                  value={this.state.submitData.email}
+                  onChange={this.handleChange}/>
+              </FormGroup>
 
-              <Input type='email' label='Password'
-                value={this.state.submitData.password}
-                onChange={this.handleChange.bind(this, 'password')} />
+              <FormGroup>
+                <FormControl type="password" placeholder="Password" name="password"
+                  value={this.state.submitData.password}
+                  onChange={this.handleChange}/>
+              </FormGroup>
 
-                <Button type="submit" icon='bookmark' label='Sign Up' raised primary />
-            </form>
+              <Button type="submit">
+                Sign up
+              </Button>
+
+            </Form>
           </Col>
         </Row>
-      </Grid>
+      </div>
     );
   }
 })
@@ -80,14 +91,14 @@ const Signup = React.createClass({
 const mapStateToProps = (state) => { return {} }
 
 const mapDispatchToProps = (dispatch) => {
-  return {
-    onUserCreated: (user) => {
-      dispatch(auth.actions.setUser(user))
+    return {
+        onUserCreated: (user) => {
+            dispatch(auth.actions.setUser(user))
+        }
     }
-  }
 }
 
 export default connect(
-  mapStateToProps,
-  mapDispatchToProps
+    mapStateToProps,
+    mapDispatchToProps
 )(withRouter(Signup))

@@ -1,18 +1,15 @@
 import React from 'react';
 import { connect } from 'react-redux'
-import { AppBar } from 'react-toolbox/lib/app_bar';
-const { Row, Col } = require('react-flexbox-grid');
+
 
 const Header = React.createClass({
   render() {
     const { name } = this.props
 
     return (
-      <Row>
-        <Col xs>
-          <AppBar flat/>
-        </Col>
-      </Row>
+      <div>
+
+      </div>
     );
   }
 })
