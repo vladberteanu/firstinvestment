@@ -1,4 +1,5 @@
 import React from 'react'
+import { browserHistory } from 'react-router'
 import { Form, FormControl, FormGroup, Row, Col, Button} from 'react-bootstrap'
 import { withRouter, Link } from 'react-router'
 import { connect } from 'react-redux'
@@ -41,7 +42,7 @@ const Signup = React.createClass({
             console.log(user)
             this.setState({submitButtonState: 'success'})
             this.props.onUserCreated(user)
-            this.props.router.replace(nextOnboardingStep(user))
+            browserHistory.push(nextOnboardingStep(user))
         }, 1000)
     },
 

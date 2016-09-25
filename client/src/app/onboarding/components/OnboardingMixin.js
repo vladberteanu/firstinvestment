@@ -1,5 +1,6 @@
-import auth from '../';
-import { nextOnboardingStep } from '../../onboarding/utils'
+import { browserHistory } from 'react-router'
+import onboarding from 'app/onboarding';
+import { nextOnboardingStep } from 'app/onboarding/utils'
 
 var _ = require('underscore')
 
@@ -31,7 +32,7 @@ var OnboardingMixin = {
             this.setState({submitButtonState: 'success'})
             this.props.onboardingUpdated(user)
             console.log('next:',nextOnboardingStep(user))
-            this.props.router.replace(nextOnboardingStep(user))
+            browserHistory.push(nextOnboardingStep(user))
         }, 1000);
     },
 }
@@ -41,7 +42,7 @@ const mapStateToProps = (state) => { return {} }
 const mapDispatchToProps = (dispatch) => {
   return {
     onboardingUpdated: (user) => {
-      dispatch(auth.actions.setUser(user))
+      dispatch(onboarding.actions.setUser(user))
     }
   }
 }
