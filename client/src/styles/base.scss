@@ -28,11 +28,13 @@ p {
     }
 }
 
-.form-group input {
+.form-control {
     border-radius: 0;
+    background-color: transparent;
 }
 
-.form-group input:focus {
+
+.form-control:focus {
     border-color: $grey-1;
     box-shadow: none;
 }
@@ -173,4 +175,9 @@ input::-webkit-inner-spin-button {
 .sector-card:hover {
     cursor: pointer;
     border: 1px solid #ccc;
+}
+
+.sector-company .form-control {
+    border: none;
+    box-shadow: none;
 }
