@@ -1,16 +1,15 @@
 import React from 'react';
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router'
-import { Header } from 'app/header/components'
 
 const Authorizer = withRouter(
 
   React.createClass({
 
     componentDidMount() {
-        if (!this.props.user.name) {
-          this.props.router.replace('/signup')
-        }
+        // if (!this.props.user.name) {
+        //   this.props.router.replace('/signup')
+        // }
     },
 
     render() {

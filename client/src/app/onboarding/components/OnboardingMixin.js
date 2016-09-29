@@ -7,6 +7,9 @@ var _ = require('underscore')
 var OnboardingMixin = {
 
     handleChange(event) {
+        if (event.target.maxLength && event.target.value.length > event.target.maxLength) {
+            return;
+        }
         var submitData = _.extend({}, this.state.submitData)
         submitData[event.target.name] = event.target.value
         this.setState({ submitData: submitData });

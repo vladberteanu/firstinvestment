@@ -37,9 +37,10 @@ const DateOfBirth = React.createClass({
                             <FormGroup>
                                 <InputGroup>
                                     <InputGroup.Addon className="dollar">$</InputGroup.Addon>
-                                    <FormControl type="number" name="capital" placeholder="0"
+                                    <FormControl type="number" name="capital" placeholder="0" maxLength={7}
                                         className="sevenDigit capital"
-                                        onChange={this.handleChange}/>
+                                        onChange={this.handleChange}
+                                        value={this.state.submitData.capital}/>
                                 </InputGroup>
                             </FormGroup>
                             <div className="text-center">

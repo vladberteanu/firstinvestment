@@ -29,24 +29,30 @@ const DateOfBirth = React.createClass({
                     </Col>
                 </Row>
                 <Row>
-                    <Col sm={4} smOffset={4} className="text-center">
+                    <Col sm={4} smOffset={4} className="bumperTop-lg text-center">
                         <h1>When is your birthday?</h1>
                     </Col>
                 </Row>
                 <Row className="bumperTop-lg">
                     <Col sm={4} smOffset={4} className="text-center">
                         <Form inline className="onboarding" onSubmit={this.handleSubmit}>
-                            <FormGroup maxLength="2">
+                            <FormGroup>
                                 <FormControl type="number" name="month" placeholder="MM" maxLength={2}
-                                    className="twoDigit" onChange={this.handleChange}/>
+                                    className="twoDigit"
+                                    onChange={this.handleChange}
+                                    value={this.state.submitData.month}/>
                             </FormGroup>
                             <FormGroup>
                                 <FormControl type="number" name="day" placeholder="DD" maxLength={2}
-                                    className="twoDigit" onChange={this.handleChange}/>
+                                    className="twoDigit"
+                                    onChange={this.handleChange}
+                                    value={this.state.submitData.day}/>
                                 </FormGroup>
                             <FormGroup>
                                 <FormControl type="number" name="year" placeholder="YYYY" maxLength={4}
-                                    className="fourDigit" onChange={this.handleChange}/>
+                                    className="fourDigit"
+                                    onChange={this.handleChange}
+                                    value={this.state.submitData.year}/>
                             </FormGroup>
                             <div className="text-center bumperTop-lg">
                                 <Button type="submit" className="bumperTop-md" bsStyle="success">Next</Button>

@@ -5,8 +5,10 @@ import { Provider } from 'react-redux'
 import { createStore } from 'redux'
 import { syncHistoryWithStore } from 'react-router-redux'
 import onboarding from 'app/onboarding';
+import { Portfolio, Feedback, Sector } from 'app/main/components'
 import rootReducer from 'app/rootReducer'
 import style from 'styles/base.scss';
+import sidebar from 'styles/sidebar.css';
 
 let store = createStore(rootReducer)
 const history = syncHistoryWithStore(browserHistory, store)
@@ -19,7 +21,9 @@ render(
             <Route component={onboarding.components.Authorizer}>
                 <Route path="/onboarding/dob" component={onboarding.components.DateOfBirth} />
                 <Route path="/onboarding/capital" component={onboarding.components.Capital} />
-                <Route path="/portfolio"/>
+                <Route path="/portfolio" component={Portfolio}/>
+                <Route path="/portfolio/:sector" component={Sector}/>
+                <Route path="/feedback" component={Feedback}/>
             </Route>
         </Router>
     </Provider>,

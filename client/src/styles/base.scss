@@ -2,6 +2,7 @@ $font-stack: "Proxima Nova";
 
 $grey-1: #ccc;
 $grey-2: #eee;
+$grey-3: #666;
 
 $white: white;
 $green: #57B257;
@@ -21,6 +22,12 @@ p {
     padding: 0;
 }
 
+.onboarding {
+    .form-group input {
+        font-size: 25px;
+    }
+}
+
 .form-group input {
     border-radius: 0;
 }
@@ -30,14 +37,14 @@ p {
     box-shadow: none;
 }
 
-.form-horizontal {
-    border: 1px solid #ddd;
-    padding: 40px;
-    background-color: $white;
+.auth.form-horizontal {
+    padding-left: 40px;
+    padding-right: 40px;
 }
 
 .btn {
     border-radius: 0;
+    font-size: 18px;
 }
 
 a, a:hover {
@@ -68,39 +75,50 @@ $lg-space: 32px;
 }
 
 .auth .swap {
-    margin-top: $xs-space;
+    margin-top: $md-space;
 }
 
 .onboarding {
 
     .form-group input {
-        background-color: $grey-2;
         border-top: none;
         border-left: none;
         border-right: none;
         box-shadow: none;
         margin-left: $md-space;
+        padding: 0;
+        text-align: center;
     }
 
     .twoDigit {
-        width: 50px;
+        width: 45px;
     }
     .fourDigit {
-        width: 62px;
+        width: 65px;
     }
     .sevenDigit {
         width: 80px;
     }
 
     .dollar {
+        font-size: 25px;
         padding: 0;
         border: none;
+        background-color: $white;
     }
 
     .form-group input.capital {
-        margin-left: 0px;
+        margin-left: 5px;
+        text-align: left;
+        width: 100px;
     }
 
+}
+
+.logo-dashboard {
+    height: 70px;
+    margin-top: 10px;
+    margin-left: 22px;
 }
 
 input::-webkit-outer-spin-button,
@@ -110,7 +128,49 @@ input::-webkit-inner-spin-button {
     margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
 }
 
-body {
-    background-color: $grey-2;
+
+.section-title {
+    padding-top: $lg-space;
+    font-size: 25px;
+    font-weight: bold;
 }
 
+.section-subitle {
+    font-size: 16px;
+    color: $grey-3;
+    padding-top: 5px;
+}
+
+
+.sector-card {
+    height: 200px;
+    width: 300px;
+    margin-top: 30px;
+    border: 1px solid #ddd;
+
+    .header {
+        border-bottom: 1px solid #ddd;
+        padding: 10px;
+        font-size: 16px;
+        font-weight: bold;
+        color: #333;
+        background-color: #eee;
+
+        span {
+            position: relative;
+            top: 3px;
+        }
+    }
+
+    .info-section {
+        padding-left: 30px;
+        margin-top: 20px;
+        font-size: 16px;
+        font-weight: bold;
+    }
+}
+
+.sector-card:hover {
+    cursor: pointer;
+    border: 1px solid #ccc;
+}

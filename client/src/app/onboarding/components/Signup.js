@@ -4,7 +4,6 @@ import { Form, FormControl, FormGroup, Row, Col, Button} from 'react-bootstrap'
 import { withRouter, Link } from 'react-router'
 import { connect } from 'react-redux'
 import onboarding from 'app/onboarding'
-import { Header } from 'app/header/components'
 import { nextOnboardingStep } from 'app/onboarding/utils'
 
 let _ = require('underscore')
@@ -61,7 +60,7 @@ const Signup = React.createClass({
             </Row>
             <Row className="bumperTop-lg">
               <Col sm={4} smOffset={4}>
-                <Form horizontal onSubmit={this.handleSubmit} className="auth">
+                <Form horizontal onSubmit={this.handleSubmit} className="auth text-center">
                     <FormGroup>
                         <FormControl type="text" placeholder="Full Name" name="name"
                           value={this.state.submitData.name}
@@ -77,7 +76,7 @@ const Signup = React.createClass({
                           value={this.state.submitData.password}
                           onChange={this.handleChange}/>
                     </FormGroup>
-                    <Button type="submit" className="bumperTop-md" bsStyle="success">Sign Up</Button>
+                    <Button type="submit" className="bumperTop-lg" bsStyle="success">Sign Up</Button>
                     <p className="swap">
                       Already a member? &nbsp;
                       <Link to="/login">Login</Link>
